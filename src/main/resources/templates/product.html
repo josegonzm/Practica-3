@@ -25,20 +25,21 @@
                     <tbody>
                         <tr th:each="product : ${products}">
                             <td><span th:text="${product.id}"></span></td>
-                            <td><span th:text="${product.descripcion}"> </span></td>
+                            <td><span th:text="${product.name_arbol}"></span></td>
                             <td><span th:text="${product.precio}"> </span></td>
-                            <td><img alt="..." class="card-img-top" th:src="${product.ruta_imagen}">
-                            </td>
-                            <td>
-                                <button type="button" th:attr="idProduct=${product.id}"
-                                    class="btn btn-primary open-modal" data-toggle="modal" data-target="#productModal">
-                                    edit
-                                </button>
-                                <button type="button" th:attr="idProduct=${product.id}"
-                                    class="btn btn-danger open-modal btnDeleteProduct">
-                                    delete
-                                </button>
-                            </td>
+                            <td><img alt="..." class="card-img-top" th:src="${product.ruta_imagen}"></td>
+                            <td><span th:text="${product.descripcion}"> </span></td>
+                        </tr>
+                        <td>
+                            <button type="button" th:attr="idProduct=${product.id}" class="btn btn-primary open-modal"
+                                data-toggle="modal" data-target="#productModal">
+                                edit
+                            </button>
+                            <button type="button" th:attr="idProduct=${product.id}"
+                                class="btn btn-danger open-modal btnDeleteProduct">
+                                delete
+                            </button>
+                        </td>
                         </tr>
                     </tbody>
                 </table>

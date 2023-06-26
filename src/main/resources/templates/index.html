@@ -20,10 +20,10 @@
                 <tbody>
                 <tr th:each="product : ${products}">
                     <td><span th:text="${product.id}"></span></td>
-                    <td><span th:text="${product.descripcion}"> </span></td>
+                    <td><span th:text="${product.name_arbol}"></span></td>
                     <td><span th:text="${product.precio}"> </span></td>
-                    <td><img alt="..." class="card-img-top" th:src="${product.ruta_imagen}">
-                    </td>
+                    <td><img alt="..." class="card-img-top" th:src="${product.ruta_imagen}"></td>
+                    <td><span th:text="${product.descripcion}"> </span></td>
                 </tr>
                 </tbody>
             </table>
