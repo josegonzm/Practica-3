@@ -12,11 +12,10 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
 
 @Configuration //Decorador or tag
-public class ProyectConfig {
+public class ProyectConfig implements WebMvcConfigurer {
 
     /* localeResolver se utiliza para crear una sesión de cambio de idioma*/
     //Funciones que ejecuta springboot a la hora de configurarse
-
     //Este es el MODELO
     @Bean
     public LocaleResolver localeResolver() {

@@ -1,29 +1,27 @@
 //CREATE AND UPDATE
 $(document).on("click", ".open-modal", function () {
-    const currentProductId = Number($(this).attr('idproduct'));
+    const currentTreeId = Number($(this).attr('id_arbol'));
 
-    if (currentProductId) {
-        const currentProduct = products.find(x => x.id === currentProductId);
-        $("#id").val(currentProduct.id);
-        $("#id_categoria").val(currentProduct.id_categoria);
-        $("#descripcion").val(currentProduct.descripcion);
-        $("#detalle").val(currentProduct.detalle);
-        $("#precio").val(currentProduct.precio);
-        $("#existencias").val(currentProduct.existencias);
-        $("#ruta_imagen").val(currentProduct.ruta_imagen);
+    if (currentTreeId) {
+        const currentTreeId = products.find(x => x.id === currentTreeId);
+        $("#id").val(currentTree.id_arbol);
+        $("#name_arbol").val(currentTree.name_arbol);
+        $("#precio").val(currentTree.precio);
+        $("#ruta_imagen").val(currentTree.ruta_imagen);
+        $("#descripcion").val(currentTree.descripcion);
     }
 });
 
-$(document).on("click", "#saveProduct", function () {
-    $("#formProduct").submit();
+$(document).on("click", "#saveTree", function () {
+    $("#formTree").submit();
 })
 
 //Delete
 $(document).on("click", ".btnDeleteProduct", function () {
-    const currentProductId = Number($(this).attr('idproduct'));
-    const currentProduct = products.find(x => x.id === currentProductId);
+    const currentTreeId = Number($(this).attr('id_arbol'));
+    const currentTree = products.find(x => x.id === currentTreeId);
     $.ajax({
-        url: 'product/delete',
+        url: 'tree/delete',
         contentType: "application/json",
         dataType: 'json',
         type: 'POST',
@@ -31,6 +29,6 @@ $(document).on("click", ".btnDeleteProduct", function () {
             location.reload();
         },
         //here we are serialization the object
-        data: JSON.stringify(currentProduct)
+        data: JSON.stringify(currentTree)
     });
 })
